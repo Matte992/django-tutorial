@@ -15,6 +15,9 @@ class Movie(models.Model):
     released = models.CharField(max_length=128)
     created_on = models.DateTimeField(auto_now_add=True)
     genre = models.ForeignKey(Genre, on_delete=models.DO_NOTHING)
+    viewed = models.BooleanField(default=False)
+    is_deleted = models.BooleanField(default=False)
+
 
     # rate = models.IntegerField(default=0) #blank=True
 

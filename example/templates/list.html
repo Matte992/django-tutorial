@@ -13,8 +13,26 @@
             {% for movie in movies %}
             <li> {{movie.name|upper}}</li>
             <ul>
-                <li> {{movie.created_on|date:'Y-m-d'}}</li>
-                <li> {{movie.year}}</li>
+                <li>
+                    <p>Movie ID {{movie.id}}</p>
+                    <p>Movie created on list {{movie.created_on|date:'Y-m-d'}}</p>
+                    <p>Movie created year {{movie.year}} </p>
+                    <a href="{%url 'delete_view' pk=movie.id%}"><b>Delete</b></a>
+                    <a href="{%url 'movie_edit' pk=movie.id%}"><b>Edit</b></a>
+                </li>
+            </ul>
+            {% endfor %}
+        </ul>
+    </div>
+     <div class=" panel-body">
+        <ul>
+            {% for genre in genres %}
+            <li> {{genre.name|upper}}</li>
+            <ul>
+                <li>
+                    <p>Genre ID {{genre.id}}</p>
+                    <a href="{%url 'genre_edit' pk=genre.id%}"><b>Edit</b></a>
+                </li>
             </ul>
             {% endfor %}
         </ul>
